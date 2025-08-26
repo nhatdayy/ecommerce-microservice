@@ -55,3 +55,8 @@ vs/
 # IDE files
 /.vscode
 /.idea
+
+
+#
+appsettings.json
+appsettings.*.json
