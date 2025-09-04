@@ -8,6 +8,6 @@ public abstract class DomainEntity<TKey>
     [BsonRepresentation(MongoDB.Bson.BsonType.ObjectId)]
     public virtual TKey Id { get; set; } = default!;
     public bool IsDeleted { get; set; }
-    public DateTime? DeletedDate { get; set; }
+    public DateTime? DeletedAt { get; set; }
     public string? DeletedBy { get; set; }
 }
