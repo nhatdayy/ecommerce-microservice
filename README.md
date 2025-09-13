@@ -1,45 +1,66 @@
-# .NET Core Microservices with Clean Architecture
+.Net Core Microservices using Clean Architecture Implementation
+This repository contains a comprehensive implementation of Microservices architecture using the .NET Core platform along with modern tools and practices for building scalable, efficient, and robust distributed
+![Alt text](./images/overview.png)
 
-## 🏗️ Architecture & Patterns
+Microservices are a design pattern in which applications are composed of independent modules that communicate with each other within well-defined boundaries. This architecture makes it easier to develop, test, and deploy isolated parts of an application.
 
-- Clean Architecture
-- CQRS (Command Query Responsibility Segregation)
-- Mediator Pattern (MediatR)
-- Event-Driven Architecture
-- Saga / Outbox Pattern
-- API Gateway Pattern (Ocelot / Nginx)
-- Sidecar Pattern
-- Service Mesh (Istio)
+This project demonstrates how to:
 
-## ⚙️ Backend Technologies
+Build and deploy Microservices with .NET Core
 
-- .NET 8
-- ASP.NET Core Web API
-- gRPC
-- IdentityServer 4 / Azure AD (Authentication & Authorization)
-- RabbitMQ (Message Queue)
-- Redis (Caching, Pub/Sub)
-- SQL Server
-- PostgreSQL
-- MongoDB
+Use Docker and Kubernetes for containerization and orchestration
 
-## 💻 Frontend
+Integrate Azure AD for authentication and authorization
 
-- Angular 18
+Enable messaging with RabbitMQ
 
-## ☸️ Cloud & DevOps
+Implement efficient inter-service communication with gRPC
 
-- Docker
-- Kubernetes (K8s)
-- Azure Kubernetes Service (AKS)
-- Helm Charts
-- Istio Service Mesh
-- Azure API Gateway
+Manage traffic and observability with Istio Service Mesh
 
-## 🔍 Cross-Cutting Concerns
+Use multiple data stores: SQL Server, MongoDB, PostgreSQL, Redis
 
-- Structured Logging (Serilog)
-- ELK Stack (Elasticsearch, Logstash, Kibana)
-- Observability & Monitoring
-- Distributed Tracing
-- Caching & Validation
+Configure API gateways with Ocelot and Nginx
+
+Deploy to Azure using Helm Charts
+
+Enable Auto-scaling for high availability
+
+Features
+
+✅ Secure Microservices with Azure AD
+
+✅ Implement cross-cutting concerns (logging, monitoring, caching, etc.)
+
+✅ Versioning Microservices
+
+✅ Build an Angular 15 frontend for Microservices
+
+✅ Deploy to Kubernetes and AKS
+
+Target Audience
+
+This repository is useful for:
+
+Developers who want to explore Microservices architecture in practice
+
+Architects designing scalable and fault-tolerant systems
+
+Teams looking for a reference implementation of modern .NET Microservices
+
+Prerequisites
+
+Basic understanding of C#, Docker, and Angular
+
+Familiarity with distributed systems concepts
+
+Tech Stack
+
+Backend: .NET Core, gRPC, RabbitMQ, Redis
+
+Frontend: Angular 15
+
+Databases: SQL Server, MongoDB, PostgreSQL
+
+Infrastructure: Docker, Kubernetes, Helm, Istio, Nginx, Ocelot, Azure
+![Alt text](./images/techstack.png)

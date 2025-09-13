@@ -1,6 +1,7 @@
 ﻿using Catalog.Core.Abstractions;
 using Contract.Abstarctions;
 using MongoDB.Driver;
+using System.Linq.Expressions;
 
 namespace Catalog.Persistence.Repositories;
 
@@ -22,25 +23,34 @@ internal class RepositoryBase<TEntity, TKey> : IRepositoryBase<TEntity, TKey> wh
         return entity;
     }
 
-    public async Task<IEnumerable<TEntity>> GetAllAsync(PaginationRequest request)
+    public async Task<IEnumerable<TEntity>> GetAllAsync()
     {
-        var builder = Builders<TEntity>.Filter;
-        var filter = builder.Eq(x => x.IsDeleted, false);
+        return await _collection.FindSync(x => !x.IsDeleted).ToListAsync();
+    }
 
-        if (!string.IsNullOrEmpty(request.SearchTerm))
-        {
-            var searchFilter = builder.Regex("Name", new MongoDB.Bson.BsonRegularExpression(request.SearchTerm, "i"));
-            filter = builder.And(filter, searchFilter);
-        }
+    public async Task<PaginationResult<TEntity>> GetAllAsync(
+    PaginationRequest request,
+    Expression<Func<TEntity, bool>>? predicate = null)
+    {
+        var filter = predicate ?? (x => true);
 
-        request.Total = (int)await _collection.CountDocumentsAsync(filter);
+        var totalCount = await _collection.CountDocumentsAsync(filter);
 
-        return await _collection
+        var items = await _collection
             .Find(filter)
             .Skip((request.PageIndex - 1) * request.PageSize)
             .Limit(request.PageSize)
             .ToListAsync();
+
+        return new PaginationResult<TEntity>(
+            request.PageIndex,
+            request.PageSize,
+            (int)totalCount,
+            items
+        );
     }
+
+
 
     public async Task<TEntity> GetByIdAsync(TKey id)
     {

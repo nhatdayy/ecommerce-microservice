@@ -1,4 +1,5 @@
 ﻿using Contract.Abstarctions;
+using System.Linq.Expressions;
 
 namespace Catalog.Core.Abstractions;
 public interface IRepositoryBase<TEntity, in Tkey> where TEntity : DomainEntity<Tkey>
@@ -7,5 +8,9 @@ public interface IRepositoryBase<TEntity, in Tkey> where TEntity : DomainEntity<
     Task<TEntity> UpdateAsync(TEntity entity);
     Task<TEntity> GetByIdAsync(Tkey id);
     Task<TEntity> RemoveAsync(TEntity entity);
-    Task<IEnumerable<TEntity>> GetAllAsync(PaginationRequest request);
+    Task<IEnumerable<TEntity>> GetAllAsync();
+    Task<PaginationResult<TEntity>> GetAllAsync(
+        PaginationRequest request,
+        Expression<Func<TEntity, bool>>? predicate = null
+    );
 }
