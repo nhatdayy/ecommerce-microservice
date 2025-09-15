@@ -8,12 +8,9 @@ using Contract.Abstarctions;
 using MediatR;
 
 namespace Catalog.Application.Features.Brands;
-public record GetAllBrandsQuery
-(
-    PaginationRequest PaginationRequest
-) : IQuery<PaginationResult<BrandResponse>>;
+public record GetAllBrandsQuery() : IQuery<IList<BrandResponse>>;
 
-internal class GetAllBrandQueryHandler : IQueryHandler<GetAllBrandsQuery, PaginationResult<BrandResponse>>
+internal class GetAllBrandQueryHandler : IQueryHandler<GetAllBrandsQuery, IList<BrandResponse>>
 {
     private readonly IBrandRepository _brandRepository;
     private readonly IMapper _mapper;
@@ -22,16 +19,11 @@ internal class GetAllBrandQueryHandler : IQueryHandler<GetAllBrandsQuery, Pagina
         _mapper = mapper;
         _brandRepository = brandRepository;
     }
-    public async Task<Result<PaginationResult<BrandResponse>>> Handle(GetAllBrandsQuery request, CancellationToken cancellationToken)
+
+    public async Task<Result<IList<BrandResponse>>> Handle(GetAllBrandsQuery request, CancellationToken cancellationToken)
     {
-        var result = await _brandRepository.GetAllAsync(request.PaginationRequest);
-        //var response = PaginationResult<BrandResponse>{
-        //    Items = _mapper.Map<IEnumerable<BrandResponse>>(result),
-        //    PageIndex = result.PageIndex,
-        //    PageSize = result.PageSize,
-        //    TotalCount = result.TotalCount,
-        //    TotalPages = result.TotalPages
-        //};
-        //return Result<PaginationResult<BrandResponse>>.Success(result);
+        var result = await _brandRepository.GetAllAsync();
+        var mappedResult = _mapper.Map<IList<BrandResponse>>(result);
+        return Result<IList<BrandResponse>>.Success(mappedResult);
     }
 }

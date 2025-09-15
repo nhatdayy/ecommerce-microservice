@@ -1,66 +1,110 @@
-.Net Core Microservices using Clean Architecture Implementation
-This repository contains a comprehensive implementation of Microservices architecture using the .NET Core platform along with modern tools and practices for building scalable, efficient, and robust distributed
-![Alt text](./images/overview.png)
+# 🚀 .NET Core Microservices with Clean Architecture
 
-Microservices are a design pattern in which applications are composed of independent modules that communicate with each other within well-defined boundaries. This architecture makes it easier to develop, test, and deploy isolated parts of an application.
+[![.NET](https://img.shields.io/badge/.NET%20Core-8.0-blue)]()
+[![Docker](https://img.shields.io/badge/Docker-Ready-2496ED)]()
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-Orchestration-326CE5)]()
+[![License](https://img.shields.io/badge/License-MIT-green)]()
 
-This project demonstrates how to:
+> Clean Architecture + Microservices với **.NET Core**, **Kubernetes**, **RabbitMQ**, **Redis**, **gRPC** và **Azure**.
 
-Build and deploy Microservices with .NET Core
+![Overview](./images/overview.png)
 
-Use Docker and Kubernetes for containerization and orchestration
+---
 
-Integrate Azure AD for authentication and authorization
+## 📑 Mục lục
 
-Enable messaging with RabbitMQ
+- [🎯 Features](#-features)
+- [🛠 Tech Stack](#-tech-stack)
+- [🏗 Architecture Overview](#-architecture-overview)
+- [👨‍💻 Target Audience](#-target-audience)
+- [📦 Prerequisites](#-prerequisites)
+- [🚀 Getting Started](#-getting-started)
 
-Implement efficient inter-service communication with gRPC
+---
 
-Manage traffic and observability with Istio Service Mesh
+## 🎯 Features
 
-Use multiple data stores: SQL Server, MongoDB, PostgreSQL, Redis
+- ✅ Secure Microservices with Azure AD
+- ✅ Cross-cutting concerns (logging, monitoring, caching)
+- ✅ API Gateway với **Ocelot** & **Nginx**
+- ✅ Messaging với **RabbitMQ + gRPC**
+- ✅ Triển khai bằng **Docker + Kubernetes (AKS)**
+- ✅ Istio Service Mesh cho traffic management & observability
+- ✅ Auto-scaling cho High Availability
+- ✅ Frontend với **Next.js**
 
-Configure API gateways with Ocelot and Nginx
+---
 
-Deploy to Azure using Helm Charts
+## 🛠 Tech Stack
 
-Enable Auto-scaling for high availability
+**Backend**
 
-Features
+- .NET Core, gRPC, RabbitMQ, MassTransit, Dapr, Polly
 
-✅ Secure Microservices with Azure AD
+**Frontend**
 
-✅ Implement cross-cutting concerns (logging, monitoring, caching, etc.)
+- React, Next.js
 
-✅ Versioning Microservices
+**Databases**
 
-✅ Build an Angular 15 frontend for Microservices
+- SQL Server, MongoDB, PostgreSQL, Redis
 
-✅ Deploy to Kubernetes and AKS
+**Infrastructure**
 
-Target Audience
+- Docker, Kubernetes, Istio, Helm, Ocelot, Nginx, Azure
 
-This repository is useful for:
+**Observability**
 
-Developers who want to explore Microservices architecture in practice
+- Elasticsearch, Logstash, Kibana (ELK Stack)
 
-Architects designing scalable and fault-tolerant systems
+**Validation**
 
-Teams looking for a reference implementation of modern .NET Microservices
+- FluentValidation
 
-Prerequisites
+![Tech Stack](./images/techstack.png)
 
-Basic understanding of C#, Docker, and Angular
+---
 
-Familiarity with distributed systems concepts
+## 🏗 Architecture Overview
 
-Tech Stack
+Microservices là một design pattern trong đó ứng dụng được chia thành nhiều module độc lập, giao tiếp qua những boundary rõ ràng. Điều này giúp dễ dàng **develop, test, deploy, và scale** từng phần của hệ thống.
 
-Backend: .NET Core, gRPC, RabbitMQ, Redis
+Dự án này minh họa cách:
 
-Frontend: Angular 15
+- Build & deploy microservices với **.NET Core**
+- Dùng **Docker & Kubernetes** để container hóa và orchestrate
+- Tích hợp **Azure AD** cho auth
+- Messaging với **RabbitMQ**
+- Inter-service communication với **gRPC**
+- Observability & traffic management với **Istio**
+- Multi-database support (**SQL Server, MongoDB, PostgreSQL, Redis**)
+- API Gateway bằng **Ocelot & Nginx**
+- CI/CD với **Helm Charts** & auto-scaling
 
-Databases: SQL Server, MongoDB, PostgreSQL
+---
 
-Infrastructure: Docker, Kubernetes, Helm, Istio, Nginx, Ocelot, Azure
-![Alt text](./images/techstack.png)
+## 👨‍💻 Target Audience
+
+Repo này hữu ích cho:
+
+- Developers muốn học Microservices kiến trúc chuẩn
+- Architects thiết kế hệ thống **scalable** & **fault-tolerant**
+- Teams tìm kiếm reference implementation cho .NET Microservices hiện đại
+
+---
+
+## 📦 Prerequisites
+
+- Kiến thức cơ bản về **C#**, **Docker**, **Next.js**
+- Hiểu biết cơ bản về **Distributed Systems**
+
+---
+
+## 🚀 Getting Started
+
+Clone repo:
+
+```bash
+git clone https://github.com/your-repo.git
+cd your-repo
+```
