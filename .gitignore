@@ -57,6 +57,7 @@ vs/
 /.idea
 
 
-#
-appsettings.json
-appsettings.*.json
+# Ignore all appsettings.json anywhere
+**/appsettings.json
+**/appsettings.*.json
+

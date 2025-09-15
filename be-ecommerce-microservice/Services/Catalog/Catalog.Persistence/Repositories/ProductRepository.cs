@@ -1,6 +1,7 @@
 ﻿using Catalog.Core.Abstractions;
 using Catalog.Core.Entities;
 using Catalog.Core.Repositories;
+using Catalog.Persistence.Data;
 using Contract.Abstarctions;
 using MongoDB.Driver;
 
@@ -9,9 +10,10 @@ internal class ProductRepository : RepositoryBase<Product, string>, IProductRepo
 {
     private readonly IMongoCollection<Product> _collection;
 
-    public ProductRepository(IMongoDatabase database, string? collectionName = null) : base(database, collectionName)
+    public ProductRepository(ICatalogContext context, string? collectionName = null)
+        : base(context.Products.Database, collectionName)
     {
-        _collection = database.GetCollection<Product>(collectionName ?? typeof(Product).Name);
+        _collection = context.Products; 
     }
 
     public async Task<IEnumerable<Product>> GetProductsByBrand(string brandName)

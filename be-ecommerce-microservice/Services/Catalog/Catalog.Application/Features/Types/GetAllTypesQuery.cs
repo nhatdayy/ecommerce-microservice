@@ -1,4 +1,5 @@
 ﻿
+using AutoMapper;
 using Catalog.Contracts.Abstractions.Message;
 using Catalog.Contracts.Abstractions.Shared;
 using Catalog.Contracts.Dtos.Responses;
@@ -13,18 +14,17 @@ public record GetAllTypesQuery
 internal class GetAllTypesQueryHandler : IQueryHandler<GetAllTypesQuery, IList<ProductTypeResponse>>
 {
     private readonly ITypeRepository _typeRepository;
-    public GetAllTypesQueryHandler(ITypeRepository typeRepository)
+    private readonly IMapper _mapper;
+    public GetAllTypesQueryHandler(ITypeRepository typeRepository, IMapper mapper)
     {
+        _mapper = mapper;
         _typeRepository = typeRepository;
     }
     public async Task<Result<IList<ProductTypeResponse>>> Handle(GetAllTypesQuery request, CancellationToken cancellationToken)
     {
         var result = await _typeRepository.GetAllAsync();
-        IList<ProductTypeResponse> typeResponses = result.Select(t => new ProductTypeResponse
-        {
-            Id = t.Id,
-            Name = t.Name
-        }).ToList();
-        return Result.Success(typeResponses);
+        var typeResponses = _mapper.Map<IList<ProductTypeResponse>>(result);
+        return Result<IList<ProductTypeResponse>>.Success(typeResponses);
+
     }
 }
