@@ -26,12 +26,12 @@
 
 - ✅ Secure Microservices with Azure AD
 - ✅ Cross-cutting concerns (logging, monitoring, caching)
-- ✅ API Gateway với **Ocelot** & **Nginx**
-- ✅ Messaging với **RabbitMQ + gRPC**
-- ✅ Triển khai bằng **Docker + Kubernetes (AKS)**
-- ✅ Istio Service Mesh cho traffic management & observability
-- ✅ Auto-scaling cho High Availability
-- ✅ Frontend với **Next.js**
+- ✅ API Gateway with **Ocelot** & **Nginx**
+- ✅ Messaging with **RabbitMQ + gRPC**
+- ✅ Deployment using **Docker + Kubernetes (AKS)**
+- ✅ Istio Service Mesh for traffic management & observability
+- ✅ Auto-scaling for High Availability
+- ✅ Frontend with **Next.js**
 
 ---
 
@@ -67,36 +67,36 @@
 
 ## 🏗 Architecture Overview
 
-Microservices là một design pattern trong đó ứng dụng được chia thành nhiều module độc lập, giao tiếp qua những boundary rõ ràng. Điều này giúp dễ dàng **develop, test, deploy, và scale** từng phần của hệ thống.
+Microservices is a design pattern in which an application is divided into multiple independent modules that communicate through well-defined boundaries. This makes it easier to develop, test, deploy, and scale each part of the system.
 
-Dự án này minh họa cách:
+Project about:
 
 - Build & deploy microservices với **.NET Core**
-- Dùng **Docker & Kubernetes** để container hóa và orchestrate
-- Tích hợp **Azure AD** cho auth
+- Using **Docker & Kubernetes** for container và orchestrate
+- integration **Azure AD** cho auth
 - Messaging với **RabbitMQ**
 - Inter-service communication với **gRPC**
 - Observability & traffic management với **Istio**
 - Multi-database support (**SQL Server, MongoDB, PostgreSQL, Redis**)
-- API Gateway bằng **Ocelot & Nginx**
+- API Gateway by **Ocelot & Nginx**
 - CI/CD với **Helm Charts** & auto-scaling
 
 ---
 
-## 👨‍💻 Target Audience
+## 👨‍💻 Target 
 
 Repo này hữu ích cho:
 
-- Developers muốn học Microservices kiến trúc chuẩn
-- Architects thiết kế hệ thống **scalable** & **fault-tolerant**
-- Teams tìm kiếm reference implementation cho .NET Microservices hiện đại
+- Learn about micro services
+- Architects design system **scalable** & **fault-tolerant**
+- Learn more skill for growth my self
 
 ---
 
 ## 📦 Prerequisites
 
-- Kiến thức cơ bản về **C#**, **Docker**, **Next.js**
-- Hiểu biết cơ bản về **Distributed Systems**
+- Experience: **C#**, **Docker**, **Next.js**
+- Understand basic: **Distributed Systems**
 
 ---
 
@@ -105,6 +105,5 @@ Repo này hữu ích cho:
 Clone repo:
 
 ```bash
-git clone https://github.com/your-repo.git
-cd your-repo
+git clone https://github.com/your-repo.git](https://github.com/nhatdayy/ecommerce-microservice
 ```
