@@ -2,7 +2,6 @@
 using Catalog.Core.Entities;
 using Catalog.Core.Repositories;
 using Catalog.Persistence.Data;
-using Contract.Abstarctions;
 using MongoDB.Driver;
 
 namespace Catalog.Persistence.Repositories;
@@ -19,7 +18,7 @@ internal class ProductRepository : RepositoryBase<Product, string>, IProductRepo
     public async Task<IEnumerable<Product>> GetProductsByBrand(string brandName)
     {
         return await _collection.Aggregate()
-            .Match(p => p.Brand != null && p.Brand.Name == brandName && !p.IsDeleted)
+            .Match(p => p.Brands != null && p.Brands.Name == brandName && !p.IsDeleted)
             .ToListAsync();
     }
 }

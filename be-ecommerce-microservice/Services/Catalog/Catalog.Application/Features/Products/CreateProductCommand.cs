@@ -15,7 +15,7 @@ internal class CreateProductValidator : AbstractValidator<CreateProductCommand>
             .NotEmpty().WithMessage("Tên sản phẩm không được để trống.")
             .MaximumLength(100).WithMessage("Tên sản phẩm không được vượt quá 100 ký tự.");
 
-        RuleFor(x => x.Sumary)
+        RuleFor(x => x.Summary)
             .NotEmpty().WithMessage("Tóm tắt sản phẩm không được để trống.")
             .MaximumLength(250).WithMessage("Tóm tắt sản phẩm không được vượt quá 250 ký tự.");
 
@@ -43,7 +43,7 @@ internal class CreateProductValidator : AbstractValidator<CreateProductCommand>
 public record CreateProductCommand
 (
     string Name,
-    string Sumary,
+    string Summary,
     string Description,
     string ImageFile,
     decimal Price,
@@ -75,15 +75,16 @@ internal class CreateProductCommandHandler : IQueryHandler<CreateProductCommand,
         var type = await _typeRepository.GetByIdAsync(request.TypeId);
         if (type == null)
             return Result<ProductResponse>.Failure(Error.NotFound);
+
         var product = await _productRepository.AddAsync(new Product
         {
             Name = request.Name,
-            Sumary = request.Sumary,
+            Summary = request.Summary,
             Description = request.Description,
             ImageFile = request.ImageFile,
             Price = request.Price,
-            Brand = brand,
-            Type = type
+            Brands = brand,
+            Types = type
         });
         var response = _mapper.Map<ProductResponse>(product);
         return Result<ProductResponse>.Success(response);

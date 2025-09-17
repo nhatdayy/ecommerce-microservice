@@ -11,7 +11,7 @@ services:
       - ASPNETCORE_ENVIRONMENT=Development
       - "DatabaseSettings__ConnectionString=mongodb://catalogdb:27017"
       - "DatabaseSettings__DatabaseName=CatalogDb"
-      - "DatabaseSettings__CollectionName=Products"
+      - "DatabaseSettings__ProductsCollection=Products"
       - "DatabaseSettings__BrandsCollection=Brands"
       - "DatabaseSettings__TypesCollection=Types"
       - "ElasticCongiguration__Uri=http://elasticsearch:9200"

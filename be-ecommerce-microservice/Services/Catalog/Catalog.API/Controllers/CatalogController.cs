@@ -8,8 +8,6 @@ using System.Net;
 
 namespace Catalog.API.Controllers;
 
-[ApiController]
-[Route("api/[controller]")]
 public class CatalogController : ApiBaseController
 {
     private readonly IMediator _mediator;

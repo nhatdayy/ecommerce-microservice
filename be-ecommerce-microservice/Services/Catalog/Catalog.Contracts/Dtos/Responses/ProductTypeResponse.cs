@@ -4,4 +4,5 @@ public class ProductTypeResponse
 {
     public string Id { get; set; }
     public string Name { get; set; }
+    public bool IsDelted { get; set; }
 }

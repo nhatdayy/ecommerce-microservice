@@ -2,7 +2,7 @@
 using System.Linq.Expressions;
 
 namespace Catalog.Core.Abstractions;
-public interface IRepositoryBase<TEntity, in Tkey> where TEntity : DomainEntity<Tkey>
+public interface IRepositoryBase<TEntity, in Tkey> where TEntity : BaseEntity<Tkey>
 {
     Task<TEntity?> AddAsync(TEntity entity);
     Task<TEntity> UpdateAsync(TEntity entity);

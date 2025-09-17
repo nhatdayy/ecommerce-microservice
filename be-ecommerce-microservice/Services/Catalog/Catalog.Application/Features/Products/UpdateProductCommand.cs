@@ -87,12 +87,12 @@ internal class UpdateProductCommandHandler : IQueryHandler<UpdateProductCommand,
             return Result<ProductResponse>.Failure(Error.NotFound);
         }
         existingProduct.Name = request.Name;
-        existingProduct.Sumary = request.Sumary;
+        existingProduct.Summary = request.Sumary;
         existingProduct.Description = request.Description;
         existingProduct.ImageFile = request.ImageFile;
         existingProduct.Price = request.Price;
-        existingProduct.Brand =brand;
-        existingProduct.Type = type;
+        existingProduct.Brands =brand;
+        existingProduct.Types = type;
 
         _productRepository.UpdateAsync(existingProduct);
 
