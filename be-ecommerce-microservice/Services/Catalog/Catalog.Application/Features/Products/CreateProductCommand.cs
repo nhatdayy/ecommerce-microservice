@@ -84,7 +84,8 @@ internal class CreateProductCommandHandler : IQueryHandler<CreateProductCommand,
             ImageFile = request.ImageFile,
             Price = request.Price,
             Brands = brand,
-            Types = type
+            Types = type,
+            IsDeleted = false
         });
         var response = _mapper.Map<ProductResponse>(product);
         return Result<ProductResponse>.Success(response);
