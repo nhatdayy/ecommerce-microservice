@@ -3,8 +3,18 @@ using Catalog.Contracts.Abstractions.Message;
 using Catalog.Contracts.Dtos.Responses;
 using Catalog.Core.Entities;
 using Catalog.Core.Repositories;
+using FluentValidation;
 
 namespace Catalog.Application.Features.Types;
+internal class CreateTypeValidator : AbstractValidator<CreateTypeCommand>
+{
+    public CreateTypeValidator()
+    {
+        RuleFor(x => x.Name)
+            .NotEmpty().WithMessage("Tên loại sản phẩm không được để trống.")
+            .MaximumLength(100).WithMessage("Tên loại sản phẩm không được vượt quá 100 ký tự.");
+    }
+}
 public record CreateTypeCommand
 (
     string Name

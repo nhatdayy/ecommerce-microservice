@@ -3,8 +3,21 @@ using Catalog.Contracts.Abstractions.Message;
 using Catalog.Contracts.Abstractions.Shared;
 using Catalog.Contracts.Dtos.Responses;
 using Catalog.Core.Repositories;
+using FluentValidation;
 
 namespace Catalog.Application.Features.Types;
+
+internal class  UpdateTypeValidator : AbstractValidator<UpdateTypeCommand>
+{
+    public UpdateTypeValidator()
+    {
+        RuleFor(x => x.Id)
+            .NotEmpty().WithMessage("Id loại sản phẩm không được để trống.");
+        RuleFor(x => x.Name)
+            .NotEmpty().WithMessage("Tên loại sản phẩm không được để trống.")
+            .MaximumLength(100).WithMessage("Tên loại sản phẩm không được vượt quá 100 ký tự.");
+    }
+}   
 public record UpdateTypeCommand
 (
     string Id,

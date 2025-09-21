@@ -1,12 +1,10 @@
-﻿using Catalog.Application.Features.Products;
-using Catalog.Application.Features.Types;
+﻿using Catalog.Application.Features.Types;
 using Catalog.Contracts.Dtos.Responses;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 
 namespace Catalog.API.Controllers;
-
 
 public class TypeController : ApiBaseController
 {
